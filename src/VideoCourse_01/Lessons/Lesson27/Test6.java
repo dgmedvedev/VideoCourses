@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// RuntimeException здесь используются только для примера.
+// В работе их не стоит ловить и обрабатывать - это ошибки программиста, их нужно устранять в коде.
 public class Test6 {
     public static void main(String[] args) {
 
