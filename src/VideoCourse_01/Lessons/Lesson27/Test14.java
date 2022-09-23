@@ -1,21 +1,22 @@
 package VideoCourse_01.Lessons.Lesson27;
+
 import java.io.*;
+
 public class Test14 {
-    static FileInputStream fis1,fis2;
+    static FileInputStream fis1, fis2;
 
     public static void main(String[] args) {
-        try{
+        try {
             fis1 = new FileInputStream("testFile.txt");
             System.out.println("testFile.txt is found");
-            try{
+            try {
                 fis2.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 System.out.println("Problems with stream fis2");
             }
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("testFile.txt not found");
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("NullPointerException");
         }
     }
