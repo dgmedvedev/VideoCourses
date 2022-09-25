@@ -10,10 +10,9 @@ public class Tiger {
     }
 
     void drink(String liquid) throws NotWaterException {
-        if (liquid.equals("water")) {
-            System.out.println("The Tiger drink water");
-        } else {
+        if (!liquid.equals("water")) {
             throw new NotWaterException("The Tiger doesn't drink " + liquid);
         }
+        System.out.println("The Tiger drink water");
     }
 }
