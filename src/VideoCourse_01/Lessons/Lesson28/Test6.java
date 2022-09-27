@@ -4,26 +4,32 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class Test6 {
     public static void main(String[] args) {
-        LocalDate localDate = LocalDate.of(2022, Month.SEPTEMBER, 26);
-        LocalDateTime localDateTime = LocalDateTime.of(2022, Month.SEPTEMBER, 26, 17, 6);
+        LocalTime localTime = LocalTime.of(11, 33);
+        LocalDate localDate = LocalDate.of(2022, Month.SEPTEMBER, 27);
+        LocalDateTime localDateTime = LocalDateTime.of(2022, Month.SEPTEMBER, 27, 11, 34, 30);
+        // dateTimeFormatter1 определенного формата - ISO_LOCAL_DATE
+        // ISO_LOCAL_... используется редко, только для взаимодейстия между ПК
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        System.out.println(localDate);
+        System.out.println(localDate.format(dateTimeFormatter));// localDate.format(), работает только с ISO_LOCAL_DATE
+        //System.out.println(localDate.format(DateTimeFormatter.ISO_LOCAL_DATE)); - тоже, что и строка выше
 
-        System.out.println(localDate.getDayOfWeek());   //MONDAY
-        System.out.println(localDate.getDayOfMonth());  //26
-        System.out.println(localDate.getDayOfYear());   //269
-        System.out.println(localDate.getMonth());       //SEPTEMBER
-        System.out.println(localDate.getMonthValue());  //9
-        System.out.println(localDate.getYear());        //2022
+        System.out.println(localTime);
+        System.out.println(localTime.format(DateTimeFormatter.ISO_LOCAL_TIME)); // localTime.format() работает только с ISO_LOCAL_TIME
 
-        LocalTime localTime = LocalTime.of(17, 14, 59);
-        System.out.println(localTime.getNano());
-        System.out.println(localTime.getSecond());
-        System.out.println(localTime.getMinute());
-        System.out.println(localTime.getHour());
+        System.out.println("localDateTime: " + localDateTime);
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));        // работает и с Date и с Time
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_TIME));        // работает и с Date и с Time
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));   // работает и с Date и с Time
 
-        System.out.println(localDateTime.getMonth());
-        System.out.println(localDateTime.getMinute());
+        System.out.println(localDate.format(DateTimeFormatter.ISO_WEEK_DATE));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        System.out.println(localDateTime.format(formatter));
     }
 }
