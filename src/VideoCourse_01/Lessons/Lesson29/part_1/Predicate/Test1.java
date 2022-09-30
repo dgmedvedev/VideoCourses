@@ -1,4 +1,4 @@
-package VideoCourse_01.Lessons.Lesson29;
+package VideoCourse_01.Lessons.Lesson29.part_1.Predicate;
 
 import java.util.ArrayList;
 
