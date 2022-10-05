@@ -1,29 +1,19 @@
 package VideoCourse_01.Lessons.Lesson30;
 
 public class Test1 {
+
+    Test1 abc(Test1 t) {
+        t = null;
+        return t;
+    }
+
     public static void main(String[] args) {
-        Info<String> infoString = new Info<>("Hello");
-        String s = infoString.getValue();
-        System.out.println(infoString);
-        System.out.println(s);
+        Byte b = 10;
 
-        Info<Integer> infoInteger = new Info<>(100);
-        Integer i = infoInteger.getValue();
-        System.out.println(infoInteger);
-        System.out.println(i);
-    }
-}
+        Test1 t1 = new Test1();
+        Test1 t2 = new Test1();
 
-class Info<T>{          // T - называется Type Place Holder (хранитель или заполнитель типа)
-    private T value;
-    public Info(T value){
-        this.value = value;
-    }
-    public String toString(){
-        return "[{ " + value + " }]";
-    }
-
-    public T getValue(){
-        return value;
+        t1.abc(t2);
+        System.out.println(b);
     }
 }
