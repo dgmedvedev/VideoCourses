@@ -1,4 +1,4 @@
-package VideoCourse_01.Homework.Lesson6;
+package VideoCourse_01.Homework.Lesson06;
 
 public class MethodsOverloaded {
     int sum() {

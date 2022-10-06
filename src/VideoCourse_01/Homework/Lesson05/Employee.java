@@ -1,4 +1,4 @@
-package VideoCourse_01.Homework.Lesson5;
+package VideoCourse_01.Homework.Lesson05;
 
 public class Employee {
     Employee(int id, String surname, int age, double salary, String department) {

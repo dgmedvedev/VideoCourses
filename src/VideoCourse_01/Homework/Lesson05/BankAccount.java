@@ -1,4 +1,4 @@
-package VideoCourse_01.Homework.Lesson5;
+package VideoCourse_01.Homework.Lesson05;
 
 public class BankAccount {
     int id;

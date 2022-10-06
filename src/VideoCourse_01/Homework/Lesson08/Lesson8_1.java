@@ -1,4 +1,4 @@
-package VideoCourse_01.Homework.Lesson8;
+package VideoCourse_01.Homework.Lesson08;
 
 public class Lesson8_1 {
     static int umnozhenie(int x, int y, int z) {

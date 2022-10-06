@@ -1,4 +1,4 @@
-package VideoCourse_01.Homework.Lesson8;
+package VideoCourse_01.Homework.Lesson08;
 
 public class  Lesson8_2 {
     static final double pI = 3.14;

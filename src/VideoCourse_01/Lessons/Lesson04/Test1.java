@@ -1,4 +1,4 @@
-package VideoCourse_01.Lessons.Lesson4;
+package VideoCourse_01.Lessons.Lesson04;
 
 public class Test1 {
 
