@@ -1,4 +1,4 @@
-package VideoCourse_02.Lessons.Lesson01_comparation;
+package VideoCourse_02.Lessons.lesson01_comparation;
 
 import java.util.ArrayList;
 import java.util.Collections;

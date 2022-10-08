@@ -1,4 +1,4 @@
-package VideoCourse_02.Lessons.Lesson01_comparation.comparable;
+package VideoCourse_02.Lessons.lesson01_comparation.comparable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -67,7 +67,7 @@ class Employee implements Comparable<Employee> {
 //        }
 //        return res;
 
-//      5-ый способ. Реже всего используется. Т.к. из int в Integer
-//        return Integer.compare(this.id,anotherEmployee.id);
+//      5-ый способ. Реже всего используется. Т.к. работает не с int, а с Integer
+//        return this.id.compareTo(anotherEmployee.id);
     }
 }
