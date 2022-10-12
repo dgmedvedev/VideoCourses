@@ -12,6 +12,7 @@ public class ArrayListMethods1 {
         Student st5 = new Student("Olga", 'f', 18, 1, 9.6);
         Student st6 = new Student("Sidr", 'm', 24, 5, 7.9);
 
+
         ArrayList<Student> arrayList1 = new ArrayList<>();
         arrayList1.add(st1);
         arrayList1.add(st2);
@@ -19,11 +20,18 @@ public class ArrayListMethods1 {
         arrayList1.add(1, st4);
         System.out.println(arrayList1);
         arrayList1.set(1, st5);
+        arrayList1.add(st6);
+
         System.out.println(arrayList1);
-        arrayList1.remove(0);
+        arrayList1.remove(0); // удаляет объект по индексу
         System.out.println(arrayList1);
+        int index = arrayList1.indexOf(st6); // поиск индекса по объекту, если equals не переопределен (index = -1)
+        System.out.println("index = " + index); // index = 2 (т.к. equals переопределен)
+        index = arrayList1.lastIndexOf(st6); // поиск индекса по объекту, если equals не переопределен (index = -1)
+        System.out.println("index = " + index); // index = 3 (т.к. ведется поиск индекса последнего элемента)
         arrayList1.remove(st6); // удаляется объект st3.equals(st6), т.к. метод equals переопределен (иначе st3==st6 - false)
         System.out.println(arrayList1);
+
     }
 }
 
