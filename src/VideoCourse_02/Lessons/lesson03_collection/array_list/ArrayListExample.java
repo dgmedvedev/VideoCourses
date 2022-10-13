@@ -3,7 +3,7 @@ package VideoCourse_02.Lessons.lesson03_collection.array_list;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayListEx1 {
+public class ArrayListExample {
     public static void main(String[] args) {
         ArrayList<String> arrayList1 = new ArrayList<>();
         arrayList1.add("Ivan");
