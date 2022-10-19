@@ -2,7 +2,7 @@ package VideoCourse_02.Lessons.lesson03_collection.vector;
 
 import java.util.Vector;
 
-// Vector - устаревший класс (является super классом Stack), не рекомендуется к использованию
+// Vector - устаревший synchronized класс (является super классом Stack), не рекомендуется к использованию
 public class VectorExample {
     public static void main(String[] args) {
         Vector<String> vector = new Vector<>();

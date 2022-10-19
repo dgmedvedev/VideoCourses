@@ -13,12 +13,17 @@ public class HashCodeEx1 {
         map.put(st1, 7.7);
         map.put(st2, 8.7);
         map.put(st3, 9.7);
+        System.out.println(map.entrySet());
 
         Student st4 = new Student("Ivan", "Ivanov", 3);
 
         System.out.println(map.containsKey(st4)); // true, т.к. переопределены hashCode() и equals()
         // в HashMap и HashSet, сравнение сначала идет по hashCode(), только затем по equals.
         // оба метода обязательно должны быть переопределены
+
+        for(Map.Entry<Student, Double> entry : map.entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 }
 
@@ -31,6 +36,15 @@ class Student {
         this.name = name;
         this.surname = surname;
         this.course = course;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", course=" + course +
+                '}';
     }
 
     @Override
