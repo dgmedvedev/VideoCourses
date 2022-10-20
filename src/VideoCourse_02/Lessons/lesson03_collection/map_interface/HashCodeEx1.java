@@ -21,7 +21,7 @@ public class HashCodeEx1 {
         // в HashMap и HashSet, сравнение сначала идет по hashCode(), только затем по equals.
         // оба метода обязательно должны быть переопределены
 
-        for(Map.Entry<Student, Double> entry : map.entrySet()){
+        for (Map.Entry<Student, Double> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
     }
@@ -40,8 +40,7 @@ class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
+        return "Student{name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", course=" + course +
                 '}';
