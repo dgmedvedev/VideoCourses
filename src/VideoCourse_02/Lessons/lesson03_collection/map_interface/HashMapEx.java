@@ -3,7 +3,7 @@ package VideoCourse_02.Lessons.lesson03_collection.map_interface;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HashMapEx1 {
+public class HashMapEx {
     public static void main(String[] args) {
         Map<Integer, String> map = new HashMap<>();
         map.put(100, "Dima");
@@ -24,5 +24,9 @@ public class HashMapEx1 {
 
         System.out.println(map.keySet()); // возвращает множество ключей из map
         System.out.println(map.values()); // возвращает все значения map
+
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 }

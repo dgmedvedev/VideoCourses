@@ -1,5 +1,7 @@
 package VideoCourse_02.Lessons.lesson03_collection.map_interface;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -21,16 +23,16 @@ public class HashCodeEx1 {
         // в HashMap и HashSet, сравнение сначала идет по hashCode(), только затем по equals.
         // оба метода обязательно должны быть переопределены
 
-        for (Map.Entry<Student, Double> entry : map.entrySet()) {
+        for (Map.Entry<Student, Double> entry : map.entrySet()) { // entrySet() возвращает набор сопоставлений ключ/значение
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
     }
 }
 
-class Student {
-    String name;
-    String surname;
-    int course;
+final class Student implements Comparable<Student> {
+    final String name;
+    private final String surname;
+    private final int course;
 
     public Student(String name, String surname, int course) {
         this.name = name;
@@ -59,6 +61,10 @@ class Student {
         return Objects.hash(name, surname, course);
     }
 
+    @Override
+    public int compareTo(Student o) {
+        return this.name.compareTo(o.name);
+    }
     // данная реализация метода может вызвать КОЛЛИЗИЮ
 //    public int hashCode() {
 //        return name.length() + surname.length() + course;
