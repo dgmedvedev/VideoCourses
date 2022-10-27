@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 
 public class LinkedHashMapEx {
     public static void main(String[] args) {
-        // 3-ий параметр (accessOrder) будет показывать, как мы хотим сохранять порядок:
+        // 3-ий параметр (accessOrder) будет показывать, как мы хотим сохранять порядок -
         // порядок добавления элементов (false) или порядок использования элементов (true)
         LinkedHashMap<Double, Student> lhm = new LinkedHashMap<>(16, 0.75f, true);
         Student st1 = new Student("Ivan", "Ivanov", 3);
