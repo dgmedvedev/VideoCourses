@@ -1,7 +1,5 @@
 package VideoCourse_02.Lessons.lesson03_collection.map_interface;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
