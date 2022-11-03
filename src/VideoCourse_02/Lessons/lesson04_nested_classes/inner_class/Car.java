@@ -1,23 +1,14 @@
-package VideoCourse_02.Lessons.lesson04_nested_classes.static_nested_class;
+package VideoCourse_02.Lessons.lesson04_nested_classes.inner_class;
 
 public class Car {
     String color;
     int doorCount;
     Engine engine;
-    private static int countOfCars;
 
-    public Car(String color, int doorCount, Engine engine) {
+    public Car(String color, int doorCount, int powerHorse) {
         this.color = color;
         this.doorCount = doorCount;
-        this.engine = engine;
-        countOfCars++;
-    }
-
-    void method() {
-        System.out.println(Engine.countOfEngines);
-
-        Engine e = new Engine(90);
-        System.out.println(e.powerHorse);
+        this.engine = this.new Engine(powerHorse);
     }
 
     @Override
@@ -29,15 +20,12 @@ public class Car {
                 '}';
     }
 
-    public static class Engine {
+    public class Engine {
         private final int powerHorse;
-        static int countOfEngines;
 
         public Engine(int powerHorse) {
-            System.out.println(countOfCars);
-            // System.out.println(doorCount); - ошибка, т.к. doorCount non-static
+            System.out.println(doorCount);//inner класс видит переменные внешнего класса (даже private, final и static)
             this.powerHorse = powerHorse;
-            countOfEngines++;
         }
 
         @Override
@@ -51,11 +39,13 @@ public class Car {
 
 class Test {
     public static void main(String[] args) {
-        Car.Engine engine = new Car.Engine(256);
-        System.out.println(engine);
-
-        Car car = new Car("red", 2, engine);
+        // Car.Engine engine = new Car.Engine(256); - только для static
+        Car car = new Car("black", 4, 300);
         System.out.println(car);
-        car.method();
+
+        Car.Engine otherEngine = car.new Engine(150); // создан отдельный объект Engine
+        System.out.println(otherEngine);
+
+        System.out.println(car);
     }
 }
