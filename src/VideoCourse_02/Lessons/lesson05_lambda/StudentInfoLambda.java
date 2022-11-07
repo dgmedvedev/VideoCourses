@@ -2,6 +2,8 @@ package VideoCourse_02.Lessons.lesson05_lambda;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class StudentInfoLambda {
 
@@ -54,5 +56,21 @@ class TestLambda {
         info.testStudent(students, s ->
                 s.age > 20 && s.avgGrade < 9.5 && s.sex == 'f'); // lambda expression
         // info.printStudentsMixCondition(students, 20, 9.5, 'f'); - аналог из примера StudentInfo
+        System.out.println("------------------------");
+
+
+        info.testStudent(students, s -> s.age > 30); // - 1-ый вариант
+        StudentCheck sc = s -> s.age > 30; // результат лямбда-выражения присваивается переменной
+        info.testStudent(students, sc); // - 2-ой вариант
+        System.out.println("------------------------");
+
+        Collections.sort(students, new Comparator<Student>() { // - 1-ый вариант сортировки с помощью анонимного класса
+            @Override
+            public int compare(Student s1, Student s2) {
+                return s1.course - s2.course;
+            }
+        });
+        Collections.sort(students, (s1,s2) -> s1.course - s2.course); // - 2-ой вариант сортировки с помощью lambda
+        System.out.println(students);
     }
 }
