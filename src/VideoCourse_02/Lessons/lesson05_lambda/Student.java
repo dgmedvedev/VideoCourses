@@ -15,6 +15,22 @@ public class Student {
         this.avgGrade = avgGrade;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public double getAvgGrade() {
+        return avgGrade;
+    }
+
+    public char getSex() {
+        return sex;
+    }
+
+    public int getCourse() {
+        return course;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
