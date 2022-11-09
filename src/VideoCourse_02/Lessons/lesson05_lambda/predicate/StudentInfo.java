@@ -38,7 +38,11 @@ class TestLambda {
         Predicate<Student> p1 = student -> student.getAvgGrade() > 7.5;
         Predicate<Student> p2 = student -> student.getSex() == 'm';
 
-        info.testStudent(students, p1.and(p2));
+        info.testStudent(students, p1.and(p2)); // - должно выполнятся 2 условия
+        System.out.println("------------------------");
+        info.testStudent(students, p1.or(p2)); // - список и по 1-ому и по 2-ому условию
+        System.out.println("------------------------");
+        info.testStudent(students, p1.negate()); // - антоним фильтрации p1
         System.out.println("------------------------");
 
         info.testStudent(students, new Predicate<Student>() {

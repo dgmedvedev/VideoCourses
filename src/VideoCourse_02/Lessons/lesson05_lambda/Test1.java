@@ -1,6 +1,6 @@
 package VideoCourse_02.Lessons.lesson05_lambda;
 
-public class Test2 {
+public class Test1 {
     static void aBc(I i) {
         System.out.println(i.abc("Hello"));
     }
