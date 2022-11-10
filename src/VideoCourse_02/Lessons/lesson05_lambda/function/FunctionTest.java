@@ -19,7 +19,12 @@ public class FunctionTest {
         students.add(st4);
         students.add(st5);
 
-        System.out.println(avgOfSomething(students, student -> student.getAvgGrade()));
+        double res = avgOfSomething(students, student -> student.getAvgGrade());
+        double avgCourse = avgOfSomething(students, student -> (double)student.getCourse());
+
+        System.out.println(res);
+        System.out.println(avgCourse);
+
     }
 
     public static double avgOfSomething(ArrayList<Student> list, Function<Student, Double> function){
