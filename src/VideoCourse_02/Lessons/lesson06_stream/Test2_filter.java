@@ -3,6 +3,7 @@ package VideoCourse_02.Lessons.lesson06_stream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Test2_filter {
     public static void main(String[] args) {
@@ -21,7 +22,14 @@ public class Test2_filter {
         students = students.stream().filter(element
                 -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
                 .collect(Collectors.toList());
+        System.out.println(students);
+        System.out.println("------------------------");
 
+        // можно Stream создать с нуля, но такая запись используется редко
+        Stream<Student> myStream = Stream.of(st1,st2,st3,st4,st5);
+        students = myStream.filter(element
+                        -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
+                .collect(Collectors.toList());
         System.out.println(students);
     }
 }
