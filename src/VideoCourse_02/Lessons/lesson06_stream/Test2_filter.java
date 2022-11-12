@@ -19,14 +19,17 @@ public class Test2_filter {
         students.add(st4);
         students.add(st5);
 
+        students = students.stream().sorted((x, y) -> x.getName().compareTo(y.getName())).collect(Collectors.toList());
+        System.out.println(students);
+
         students = students.stream().filter(element
-                -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
+                        -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
                 .collect(Collectors.toList());
         System.out.println(students);
         System.out.println("------------------------");
 
         // можно Stream создать с нуля, но такая запись используется редко
-        Stream<Student> myStream = Stream.of(st1,st2,st3,st4,st5);
+        Stream<Student> myStream = Stream.of(st1, st2, st3, st4, st5);
         students = myStream.filter(element
                         -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
                 .collect(Collectors.toList());
