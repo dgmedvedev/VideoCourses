@@ -16,9 +16,19 @@ public class ParallelStream {
         list.add(5.0);
         list.add(1.0);
         list.add(0.25);
+        // (10/5) = 2       1-ый поток
+        // (1/0.25) = 4     2-ой поток
+        // 2/4 = 0.5        ошибка
 
         double sumResult = list.parallelStream()
                 .reduce((accumulator, element) -> accumulator + element).get();
         System.out.println("sumResult = " + sumResult);
+
+        double divisionResult = list.stream()
+                .reduce((accumulator, element) -> accumulator / element).get();
+        System.out.println("divisionResult = " + divisionResult); // 8.0
+        double divisionResultError = list.parallelStream()
+                .reduce((accumulator, element) -> accumulator / element).get();
+        System.out.println("divisionResultError = " + divisionResultError); // 0.5 (ошибка)
     }
 }
