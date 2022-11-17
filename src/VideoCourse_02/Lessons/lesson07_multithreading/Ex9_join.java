@@ -4,8 +4,11 @@ public class Ex9_join {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Method main begins");
         Thread thread = new Thread(new Worker());
+        System.out.println(thread.getState()); // NEW
         thread.start();
-        thread.join(1500);
+        System.out.println(thread.getState()); // RUNNABLE
+        thread.join();
+        System.out.println(thread.getState()); // TERMINATED
         System.out.println("Method main ends");
     }
 }
