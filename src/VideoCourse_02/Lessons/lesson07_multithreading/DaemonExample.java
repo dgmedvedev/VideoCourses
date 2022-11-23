@@ -7,42 +7,37 @@ public class DaemonExample {
         userThread.setName("user_thread");
         DaemonThread daemonThread = new DaemonThread();
         daemonThread.setName("daemon_thread");
-        daemonThread.setDaemon(true);
+        daemonThread.setDaemon(true); // daemon поток прервется после завершения всех user потоков
         userThread.start();
         daemonThread.start();
-        try {
-            daemonThread.join();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         System.out.println("Main thread ends");
     }
 }
 
-class UserThread extends Thread{
-    public void run(){
+class UserThread extends Thread {
+    public void run() {
         System.out.println(Thread.currentThread().getName() +
                 " is daemon: " + isDaemon());
-        for(char i = 'A'; i <= 'J'; i++){
-            try{
+        for (char i = 'A'; i <= 'J'; i++) {
+            try {
                 sleep(300);
                 System.out.println(i);
-            } catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 }
 
-class DaemonThread extends Thread{
-    public void run(){
+class DaemonThread extends Thread {
+    public void run() {
         System.out.println(Thread.currentThread().getName() +
                 " is daemon: " + isDaemon());
-        for(int i = 1; i <= 200; i++){
-            try{
+        for (int i = 1; i <= 200; i++) {
+            try {
                 sleep(100);
                 System.out.println(i);
-            } catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
