@@ -7,9 +7,10 @@ public class SynchronizedObject {
     // даже были бы synchronized
     static final Object LOCK = new Object();
 
-    void sleep(long millis) {
+    void sleep(long millis, String str) {
         try {
             Thread.sleep(millis);
+            System.out.println(str);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -18,24 +19,21 @@ public class SynchronizedObject {
     void mobileCall() {
         synchronized (LOCK) {
             System.out.println("Mobile call starts");
-            sleep(3000);
-            System.out.println("Mobile call ends");
+            sleep(3000, "Mobile call ends");
         }
     }
 
     void skypeCall() {
         synchronized (LOCK) {
-            System.out.println("skypeCall call starts");
-            sleep(5000);
-            System.out.println("skypeCall call ends");
+            System.out.println("Skype call starts");
+            sleep(5000, "Skype call ends");
         }
     }
 
     void whatsAppCall() {
         synchronized (LOCK) {
-            System.out.println("whatsAppCall call starts");
-            sleep(7000);
-            System.out.println("whatsAppCall call ends");
+            System.out.println("Whatsapp call starts");
+            sleep(7000, "Whatsapp call ends");
         }
     }
 
