@@ -9,7 +9,7 @@ public class RunnableFactorial {
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        Factorial factorial = new Factorial(5);
+        FactorialR factorial = new FactorialR(5);
         executorService.execute(factorial);
         executorService.shutdown();
         executorService.awaitTermination(10, TimeUnit.SECONDS);
@@ -17,17 +17,18 @@ public class RunnableFactorial {
     }
 }
 
-class Factorial implements Runnable {
+// для выполнения нижеприведенной задачи больше подойдет интерфейс Callable
+class FactorialR implements Runnable {
     int f;
 
-    public Factorial(int f) {
+    public FactorialR(int f) {
         this.f = f;
     }
 
     @Override
     public void run() {
         if (f <= 0) {
-            System.out.println("You entered the wrong number");
+            System.out.println("You entered the wrong number"); // 1. в run() нельзя выбросить Exception вместо if
             return;
         }
 
@@ -35,6 +36,6 @@ class Factorial implements Runnable {
         for (int i = 1; i <= f; i++) {
             result *= i;
         }
-        RunnableFactorial.factorialResult = result;
+        RunnableFactorial.factorialResult = result; // 2. приходится использовать переменную вне Runnable
     }
 }
