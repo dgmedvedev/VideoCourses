@@ -1,4 +1,4 @@
-package VideoCourse_02.Lessons.lesson07_multithreading.semaphore;
+package VideoCourse_02.Lessons.lesson07_multithreading.synchronizer.semaphore;
 
 import java.util.concurrent.Semaphore;
 
