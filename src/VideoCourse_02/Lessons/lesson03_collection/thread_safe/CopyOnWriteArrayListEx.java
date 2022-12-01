@@ -1,36 +1,36 @@
 package VideoCourse_02.Lessons.lesson03_collection.thread_safe;
 
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public class ConcurrentHashMapEx {
+public class CopyOnWriteArrayListEx {
     public static void main(String[] args) throws InterruptedException {
-        // Если использовать HashMap, вылетит Exception
-        ConcurrentHashMap<Integer, String> map = new ConcurrentHashMap<>();
-        map.put(1, "Ivan");
-        map.put(2, "Petr");
-        map.put(3, "Sergey");
-        map.put(4, "Marina");
-        map.put(5, "Svetlana");
-        System.out.println(map);
+        CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
+        list.add("Ivan");
+        list.add("Petr");
+        list.add("Oleg");
+        list.add("Marina");
+        list.add("Svetlana");
+        System.out.println(list);
 
         Runnable runnable1 = () -> {
-            for (Integer i : map.keySet()) {
+            for (String str : list) {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(i + " : " + map.get(i));
+                System.out.println(str);
             }
         };
 
         Runnable runnable2 = () -> {
             try {
-                Thread.sleep(300);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            map.put(6, "Elena");
+            list.remove(4);  // создалась копия CopyOnWriteArrayList
+            list.add("Elena");     // создалась копия CopyOnWriteArrayList
         };
 
         Thread thread1 = new Thread(runnable1);
@@ -39,6 +39,6 @@ public class ConcurrentHashMapEx {
         thread2.start();
         thread1.join();
         thread2.join();
-        System.out.println(map);
+        System.out.println(list);
     }
 }
