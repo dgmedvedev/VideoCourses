@@ -9,7 +9,6 @@ public class DataStreamEx {
             outputStream.writeBoolean(true);
             outputStream.writeByte(5);
             outputStream.writeShort(120);
-            outputStream.writeBoolean(false);
             outputStream.writeInt(500);
             outputStream.writeLong(1_000_000L);
             outputStream.writeFloat(3.14F);
