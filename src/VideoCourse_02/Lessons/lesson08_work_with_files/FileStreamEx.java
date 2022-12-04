@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class PictureCopyEx {
+public class FileStreamEx {
     public static void main(String[] args) {
         try (FileInputStream inputStream = new FileInputStream("d:\\Multimedia\\Photo\\3.jpg");
              FileOutputStream outputStream = new FileOutputStream("3.jpg")) {
