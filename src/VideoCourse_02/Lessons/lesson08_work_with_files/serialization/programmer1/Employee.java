@@ -1,12 +1,13 @@
-package VideoCourse_02.Lessons.lesson08_work_with_files.programmer1;
+package VideoCourse_02.Lessons.lesson08_work_with_files.serialization.programmer1;
 
 import java.io.Serializable;
 
 public class Employee implements Serializable {
+    static final long serialVersionUID = 1; // значение вручную изменяется при будущих изменениях данного класса
     String name;
     String department;
     int age;
-    double salary;
+    transient double salary; // значение переменной не будет сериализоваться (запишется default значение = 0.0)
     Car car; // тоже должен имплементировать класс Serializable, иначе java.io.NotSerializableException
 
     public Employee(String name, String department, int age, double salary, Car car) {

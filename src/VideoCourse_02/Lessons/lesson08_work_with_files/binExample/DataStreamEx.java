@@ -1,4 +1,4 @@
-package VideoCourse_02.Lessons.lesson08_work_with_files;
+package VideoCourse_02.Lessons.lesson08_work_with_files.binExample;
 
 import java.io.*;
 

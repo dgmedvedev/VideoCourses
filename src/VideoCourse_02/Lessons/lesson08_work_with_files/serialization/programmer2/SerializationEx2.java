@@ -1,6 +1,6 @@
-package VideoCourse_02.Lessons.lesson08_work_with_files.programmer2;
+package VideoCourse_02.Lessons.lesson08_work_with_files.serialization.programmer2;
 
-import VideoCourse_02.Lessons.lesson08_work_with_files.programmer1.Employee;
+import VideoCourse_02.Lessons.lesson08_work_with_files.serialization.programmer1.Employee;
 
 import java.io.FileInputStream;
 import java.io.IOException;
