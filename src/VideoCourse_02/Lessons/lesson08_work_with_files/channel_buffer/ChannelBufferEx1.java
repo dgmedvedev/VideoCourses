@@ -36,11 +36,15 @@ public class ChannelBufferEx1 {
                     One is as though nothing is a miracle.
                     The other is as though everything is as though everything is a miracle.""";
 
-            // 1-ый способ записи в файл
-            ByteBuffer buffer2 = ByteBuffer.allocate(text.getBytes().length);
-            buffer2.put(text.getBytes());
-            buffer2.flip();
+            // 1-ый способ записи в файл (более предпочтительный)
+            ByteBuffer buffer2 = ByteBuffer.wrap(text.getBytes());
             channel.write(buffer2);
+
+            // 2-ой способ записи в файл
+//            ByteBuffer buffer2 = ByteBuffer.allocate(text.getBytes().length);
+//            buffer2.put(text.getBytes());
+//            buffer2.flip();
+//            channel.write(buffer2);
 
         } catch (IOException e) {
             e.printStackTrace();
