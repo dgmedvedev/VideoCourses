@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 
 public class PathAndFilesEx1 {
     public static void main(String[] args) throws IOException {
@@ -36,17 +37,38 @@ public class PathAndFilesEx1 {
                 filePath.toAbsolutePath().getRoot()); // - переводим в абсолютный путь и находим корень, иначе null
         System.out.println("-------------------------------------");
 
-        System.out.println("directoryPath.resolve(filePath) " + directoryPath.resolve(filePath));
+        System.out.println("directoryPath.resolve(filePath) " + directoryPath.resolve(filePath)); // - объединение путей
         System.out.println("-------------------------------------");
 
         Path anotherPath = Paths.get("C:\\Java\\M\\N\\O\\test20.txt");
-        System.out.println(directoryPath.relativize(anotherPath));
+        System.out.println(directoryPath.relativize(anotherPath)); // - возвращает разность путей (aPath-dPath)
 
-        if (!Files.exists(filePath)) {
+        if (!Files.exists(filePath)) { // - проверяет, существует ли файл
             Files.createFile(filePath);
         }
         if (!Files.exists(directoryPath)) {
             Files.createDirectory(directoryPath);
+        }
+
+        System.out.println("Files.isReadable(filePath) " + Files.isReadable(filePath));
+        System.out.println("Files.isWritable(filePath) " + Files.isWritable(filePath));
+        System.out.println("Files.isExecutable(filePath) " + Files.isExecutable(filePath));
+        System.out.println("-------------------------------------");
+
+        Path filePath2 = Paths.get("D:\\WORK\\Develop\\Java\\Projects\\VideoCourses\\test15.txt");
+        System.out.println("Files.isSameFile(filePath, filePath2) " + Files.isSameFile(filePath, filePath2));
+        System.out.println("-------------------------------------"); // - сравнивает ссылки на конкретный файл/папку
+
+        System.out.println("Files.size(filePath) " + Files.size(filePath)); // - возвращает размер файла
+        System.out.println("-------------------------------------");
+
+        System.out.println("Files.getAttribute  (filePath, \"creationTime\") " +
+                Files.getAttribute(filePath, "creationTime")); // - возвращает искомый атрибут
+        System.out.println("-------------------------------------");
+
+        Map<String, Object> attributes = Files.readAttributes(filePath, "*"); // - возвращает все атрибуты
+        for (Map.Entry<String, Object> entry : attributes.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
         }
     }
 }
