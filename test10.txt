@@ -1,9 +1,2 @@
-Had I the heavens embroidered cloths,
-En wrought with golden and silver light,
-The blue and the dim and the dark cloths
-Of night and light and the half-light,
-I would spread the cloths under your feet:
-But I, being poor, have only my dreams;
-I have spread my dreams under your feet;
-Tread softly, because you tread on my dreams
-					William Butler Yeats
+VideoCourse_02.Lessons.lesson08_work_with_files.channel_buffer.ChannelBufferEx1;
+VideoCourse_02.Lessons.lesson08_work_with_files.path_and_files.PathAndFilesEx3;
