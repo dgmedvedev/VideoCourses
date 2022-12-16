@@ -12,12 +12,15 @@ public class Regex2 {
         Pattern pattern3 = Pattern.compile("AB[C-H][3-7]KP"); // - соответствие одному символу из диапазона
         Pattern pattern4 = Pattern.compile("AB[C-H3-7]KP"); // - соответствие одному символу из ДИАПАЗОНОВ
         Pattern pattern5 = Pattern.compile("AB[^C-H3-7]KP"); // - знак ^ - соответствие одному символу НЕ из ДИАПАЗОНОВ
+        Pattern pattern6 = Pattern.compile("AB([D7])"); // - тритий символд D ИЛИ 7, также можно записать "AB(D|7)"
 
         Matcher matcher1 = pattern1.matcher(s);
         Matcher matcher2 = pattern2.matcher(s);
         Matcher matcher3 = pattern3.matcher(s);
         Matcher matcher4 = pattern4.matcher(s);
         Matcher matcher5 = pattern5.matcher(s);
+        Matcher matcher6 = pattern6.matcher(s);
+
 
         while (matcher1.find()) {
             System.out.println("Position1: " + matcher1.start() + "     " + matcher1.group());
@@ -38,6 +41,9 @@ public class Regex2 {
         while (matcher5.find()) {
             System.out.println("Position5: " + matcher5.start() + "     " + matcher5.group());
         }
-
+        System.out.println("---------------------------");
+        while (matcher6.find()) {
+            System.out.println("Position6: " + matcher6.start() + "     " + matcher6.group());
+        }
     }
 }
