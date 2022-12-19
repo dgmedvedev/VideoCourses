@@ -16,6 +16,10 @@ public class Regex2 {
         Pattern pattern7 = Pattern.compile("AB."); // - любой символ, кроме символа новой строки
         Pattern pattern8 = Pattern.compile("^ABD"); // - знак ^ не в [ ] - сотответствие выражению в начале строки
         Pattern pattern9 = Pattern.compile("8KP$"); // - знак $ - сотответствие выражению в конце строки
+        Pattern pattern10 = Pattern.compile("\\w\\s+\\w"); // s - пробельный символ, заменяет набор символов [\t\n\r\f]
+        // t - TAB
+        // n, r - начало новой строки
+        // f - form fit, окончание страницы
 
         Matcher matcher1 = pattern1.matcher(s);
         Matcher matcher2 = pattern2.matcher(s);
@@ -26,6 +30,7 @@ public class Regex2 {
         Matcher matcher7 = pattern7.matcher(s);
         Matcher matcher8 = pattern8.matcher(s);
         Matcher matcher9 = pattern9.matcher(s);
+        Matcher matcher10 = pattern10.matcher(s);
 
         while (matcher1.find()) {
             System.out.println("Position1: " + matcher1.start() + "     " + matcher1.group());
@@ -61,6 +66,10 @@ public class Regex2 {
         System.out.println("---------------------------");
         while (matcher9.find()) {
             System.out.println("Position9: " + matcher9.start() + "     " + matcher9.group());
+        }
+        System.out.println("---------------------------");
+        while (matcher10.find()) {
+            System.out.println("Position7: " + matcher10.start() + "     " + matcher10.group());
         }
     }
 }
