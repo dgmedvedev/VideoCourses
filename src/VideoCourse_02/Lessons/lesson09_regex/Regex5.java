@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Regex5 {
     public static void main(String[] args) {
-        String s
+        String s1
                 = "Ivanov Vasiliy, Russia, Moscow,Lenin street,51,Flat 48," +
                 "email:vivanov@mail.ru,Postcode: AA99,Phone Number: +123456789;" +
                 "Petrova Mariya, Belarus, Minsk,Pobeda street,123,Flat 18," +
@@ -15,7 +15,7 @@ public class Regex5 {
         boolean result = s2.matches("\\w+@\\w+\\.(com|ru)"); // сравнивает String с regex
         System.out.println(result);
 
-        String[] array = s.split(" "); // в параметре указываем тот regex, который выступает в роли разделителя
+        String[] array = s1.split(" "); // в параметре указываем тот regex, который выступает в роли разделителя
         System.out.println(Arrays.toString(array));
     }
 }
