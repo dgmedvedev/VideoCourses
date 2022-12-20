@@ -11,10 +11,6 @@ public class Regex3MetaSymbols {
         Pattern pattern2 = Pattern.compile("\\D"); // - любая НЕ цифра
         Pattern pattern3 = Pattern.compile("\\w"); // - любая буква, цифра или знак _ (т.е. все, кроме пробела,!=+-...)
         Pattern pattern4 = Pattern.compile("\\W"); // - любая НЕ буква, НЕ цифра или НЕ знак _
-        Pattern pattern5 = Pattern.compile("\\w\\s+\\w"); // s - пробельный символ, заменяет набор символов [\t\n\r\f]
-        // t - TAB
-        // n, r - начало новой строки
-        // f - form fit, окончание страницы
         Pattern pattern6 = Pattern.compile("\\D{2,6}"); // D - не цифра, кол-во повторений от 2 до 6
         Pattern pattern7 = Pattern.compile("\\D{2,}"); // D - не цифра, кол-во повторений от 2 до 6
         Pattern pattern8 = Pattern.compile("D(AB){2,}"); // DABABDABABABAB
@@ -27,7 +23,6 @@ public class Regex3MetaSymbols {
         Matcher matcher2 = pattern2.matcher(s);
         Matcher matcher3 = pattern3.matcher(s);
         Matcher matcher4 = pattern4.matcher(s);
-        Matcher matcher5 = pattern5.matcher(s);
         Matcher matcher6 = pattern6.matcher(s);
         Matcher matcher7 = pattern7.matcher(s);
         Matcher matcher8 = pattern8.matcher(s);
@@ -50,10 +45,6 @@ public class Regex3MetaSymbols {
         System.out.println("-------------------------");
         while (matcher4.find()) {
             System.out.println("Pattern4: " + matcher4.start() + "   " + matcher4.group());
-        }
-        System.out.println("-------------------------");
-        while (matcher5.find()) {
-            System.out.println("Position5: " + matcher5.start() + "     " + matcher5.group());
         }
         System.out.println("-------------------------");
         while (matcher6.find()) {
