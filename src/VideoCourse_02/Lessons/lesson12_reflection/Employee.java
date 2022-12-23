@@ -6,7 +6,8 @@ public class Employee {
     public String department;
     private double salary;
 
-    public Employee(){}
+    public Employee() {
+    }
 
     public Employee(int id, String name, String department) {
         this.id = id;
@@ -29,9 +30,13 @@ public class Employee {
         this.salary = salary;
     }
 
-    private void changeDepartment(String newDepartment){
+    private void changeDepartment(String newDepartment) {
         department = newDepartment;
         System.out.println("New department is: " + department);
+    }
+
+    public void increaseSalary() {
+        salary *= 2;
     }
 
     @Override
