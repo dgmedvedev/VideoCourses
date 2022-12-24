@@ -1,7 +1,9 @@
 package VideoCourse_02.Lessons.lesson12_reflection;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class Ex1 {
@@ -53,6 +55,33 @@ public class Ex1 {
         for (Method method : allMethods) {
             System.out.println("Name of method = " + method.getName() + " return type = " + method.getReturnType() +
                     ", parameter types = " + Arrays.toString(method.getParameterTypes()));
+        }
+        System.out.println("-------------------------------------");
+
+        Method[] allMethods2 = employeeClass.getDeclaredMethods(); // возвращает только методы класса и private методы
+        for (Method method : allMethods2) {
+            if (Modifier.isPublic(method.getModifiers()))
+                System.out.println("Name of method = " + method.getName() + " return type = " + method.getReturnType() +
+                        ", parameter types = " + Arrays.toString(method.getParameterTypes()));
+        }
+        System.out.println("-------------------------------------");
+
+        // Работа с конструкторами
+        Constructor constructor1 = employeeClass.getConstructor(); // возвращает конструктор без параметров
+        System.out.println("Constructor has " + constructor1.getParameterCount() +
+                " parameters, their types are: " + Arrays.toString(constructor1.getParameterTypes()));
+        System.out.println("-------------------------------------");
+
+        Constructor constructor2 = employeeClass.getConstructor(int.class, String.class, String.class); // возвращает конструктор без параметров
+        System.out.println("Constructor has " + constructor2.getParameterCount() +
+                " parameters, their types are: " + Arrays.toString(constructor2.getParameterTypes()));
+        System.out.println("-------------------------------------");
+
+        Constructor[] constructors = employeeClass.getConstructors();
+        for (Constructor constructor : constructors) {
+            System.out.println("Constructor " + constructor.getName() +
+                    " has " + constructor.getParameterCount() +
+                    " parameters, their types are: " + Arrays.toString(constructor.getParameterTypes()));
         }
     }
 }
