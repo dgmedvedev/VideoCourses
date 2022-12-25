@@ -21,13 +21,13 @@ public class Ex1 {
         System.out.println("Type of id field = " + someFiled.getType());
         System.out.println("-------------------------------------");
 
-        Field[] fields = employeeClass.getFields();
+        Field[] fields = employeeClass.getFields(); // возвращает поля класса, кроме private
         for (Field field : fields) {
             System.out.println("Type of " + field.getName() + " = " + field.getType());
         }
         System.out.println("-------------------------------------");
 
-        Field[] allFields = employeeClass.getDeclaredFields();
+        Field[] allFields = employeeClass.getDeclaredFields(); // возвращает все поля класса, в том числе и private
         for (Field field : allFields) {
             System.out.println("Type of " + field.getName() + " = " + field.getType());
         }
