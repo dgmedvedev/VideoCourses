@@ -24,7 +24,7 @@ public class Calculator {
     }
 
     void division(int a, int b) {
-        int result = a + b;
+        int result = a / b;
         System.out.println("Деление " + a + " на " + b + " = " + result);
     }
 }
@@ -40,14 +40,14 @@ class CalculatorTest {
             Class cl = calculator.getClass();
             Method method = null;
 
-            Method[]methods = cl.getDeclaredMethods();
-            for(Method myMethod:methods){
-                if(myMethod.getName().equals(methodName)){
+            Method[] methods = cl.getDeclaredMethods();
+            for (Method myMethod : methods) {
+                if (myMethod.getName().equals(methodName)) {
                     method = myMethod;
                 }
             }
 
-            method.invoke(calculator,Integer.parseInt(firstArgument),Integer.parseInt(secondArgument));
+            method.invoke(calculator, Integer.parseInt(firstArgument), Integer.parseInt(secondArgument));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
