@@ -9,7 +9,11 @@ public class Ex3 {
         Field field = employeeClass.getDeclaredField("salary");
         // рефлексия нарушает правило инкапсуляции
         field.setAccessible(true); // с помощью этого метода можно получить доступ к private полю
-        double salaryValue = (Double) field.get(employee);
+        double salaryValue = (Double) field.get(employee); // прочитали private поле
         System.out.println(salaryValue);
+
+        field.set(employee,1500); // - изменили private поле
+        System.out.println(employee);
+
     }
 }
