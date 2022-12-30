@@ -5,9 +5,9 @@ import java.lang.annotation.*;
 public class Test2 {
     public static void main(String[] args) throws ClassNotFoundException {
         Class samsungClass = Class.forName("VideoCourse_02.Lessons.lesson13_annotation.Samsung");
-        Annotation annotation1 = samsungClass.getAnnotation(SmartPhone.class);
-        SmartPhone sm1 = (SmartPhone) annotation1;
-        System.out.println("Annotation info from Samsung class: " + sm1.OS() + ", " + sm1.yearOfCompanyCreation());
+        SmartPhone annotation1 = (SmartPhone) samsungClass.getAnnotation(SmartPhone.class);
+        //SmartPhone sm1 = (SmartPhone) annotation1;
+        System.out.println("Annotation info from Samsung class: " + annotation1.OS() + ", " + annotation1.yearOfCompanyCreation());
 
         Class iphoneClass = Class.forName("VideoCourse_02.Lessons.lesson13_annotation.Iphone");
         Annotation annotation2 = iphoneClass.getAnnotation(SmartPhone.class);
