@@ -10,20 +10,20 @@ public class Box {
         this.height = height;
         this.length = length;
     }
+
+    void showVolume() {
+        System.out.println(width * height * length);
+    }
 }
 
-class BoxTest{
+class BoxTest {
     public static void main(String[] args) {
         Box box1 = new Box(10.2, 15, 11.3);
         Box box2 = new Box(5, 5, 5);
         Box box3 = new Box(10, 10, 10);
 
-        double volume1 = box1.width * box1.height * box1.length;
-        double volume2 = box2.width * box2.height * box2.length;
-        double volume3 = box2.width * box3.height * box3.length;
-
-        System.out.println(volume1);
-        System.out.println(volume2);
-        System.out.println(volume3);
+        box1.showVolume();
+        box2.showVolume();
+        box3.showVolume();
     }
 }
