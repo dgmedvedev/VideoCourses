@@ -55,7 +55,7 @@ class EmployeeTest {
         drivers.add(driver2);
         drivers.add(driver3);
 
-        ArrayList<CookingAble> cookers = new ArrayList<>();
+        ArrayList<CookAble> cookers = new ArrayList<>();
         cookers.add(cooker1);
         cookers.add(cooker2);
         cookers.add(cooker3);
@@ -64,7 +64,7 @@ class EmployeeTest {
             employee.voice();
         }
         System.out.println("-------------");
-        for (CookingAble cooker : cookers) {
+        for (CookAble cooker : cookers) {
             cooker.cook();
         }
         System.out.println("-------------");

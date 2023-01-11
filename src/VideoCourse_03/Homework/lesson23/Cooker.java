@@ -1,6 +1,6 @@
 package VideoCourse_03.Homework.lesson23;
 
-public class Cooker extends Employee implements CookingAble {
+public class Cooker extends Employee implements CookAble {
     Cooker(String name) {
         super(name);
     }
