@@ -1,4 +1,5 @@
 package videoCourse_04.kot.homework.lesson03
+// Nullable types (нулабельные типы)
 
 private val str1: String? = "null"
 private val str1Length: Int = str1?.length ?: 0
