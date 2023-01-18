@@ -9,7 +9,6 @@ fun main() {
         "December", "January", "February" -> "winter"
         else -> "Не найдено!"
     }
-
     val season2 = when (3) {
         in 3..5 -> "spring"
         in 6..8 -> "summer"

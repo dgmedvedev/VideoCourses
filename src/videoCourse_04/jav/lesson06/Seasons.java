@@ -12,7 +12,6 @@ public class Seasons {
             case "December", "January", "February" -> season = "winter";
             default -> season = "Не найдено!";
         }
-
         System.out.println(season);
     }
 }

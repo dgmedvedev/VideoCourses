@@ -14,7 +14,6 @@ fun main() {
         temp > 99 -> "газообразное"
         else -> "жидкое"
     }
-
     println(condition1)
     println(condition2)
 }
