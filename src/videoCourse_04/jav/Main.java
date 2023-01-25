@@ -8,5 +8,8 @@ public class Main {
         int k = 10;
         i = j + k;
         System.out.println(str + i);
+
+        int[]array1 = {1,2,3};
+        int[]array2 = new int[10];
     }
 }

@@ -12,4 +12,7 @@ fun main() {
     str = " e l l o World! "
     val prepended = "$ch$str"
     println(prepended)
+
+    val array1 = intArrayOf(1, 2, 3)
+    val array2 = IntArray(10)
 }
