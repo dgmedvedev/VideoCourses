@@ -20,6 +20,9 @@ fun main() {
         listPhoneNumbers.add(phoneNumber)
     }
 
-    println(listNames)
-    println(listPhoneNumbers)
+    val users = listNames.zip(listPhoneNumbers)
+
+    for (user in users) {
+        println("Имя: ${user.first}, Телефон: ${user.second}")
+    }
 }

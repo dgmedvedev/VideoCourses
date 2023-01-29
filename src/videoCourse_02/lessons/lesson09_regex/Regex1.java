@@ -15,7 +15,7 @@ public class Regex1 {
 
         Pattern pattern1 = Pattern.compile("\\b\\d{2}\\b"); // границы до и после нужного выражения
         Pattern pattern2 = Pattern.compile("\\+\\d{9}"); // нахождение номеров телефонов из текста
-        Pattern pattern3 = Pattern.compile("\\w+@\\w+\\.(com|ru|by)"); // нахождение номеров телефонов из текста
+        Pattern pattern3 = Pattern.compile("\\w+@\\w+\\.(com|ru|by)"); // нахождение email из текста
 
         Matcher matcher1 = pattern1.matcher(s);
         Matcher matcher2 = pattern2.matcher(s);
