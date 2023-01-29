@@ -9,8 +9,12 @@ fun main() {
     fullNames.add("Sidorov Sidr")
     val surnames = ArrayList<String>()
     val names = ArrayList<String>()
-//    val surnames = fullNames.map { it.substringBefore(" ") } - готовое решение без Pattern и Matcher
-//    val names = fullNames.map { it.substringAfter(" ") }
+//  1-ый способ
+//  val surnames = fullNames.map { it.substringBefore(" ") } - готовое решение без Pattern и Matcher
+//  val names = fullNames.map { it.substringAfter(" ") }
+//  2-ой способ
+//  val users2 = fullNames.map { Pair<String, String>(it.substringBefore(" "), it.substringAfter(" ")) }
+
     for (i in 0 until fullNames.size) {
         val array = ArrayList<String>()
         val pattern = Pattern.compile("\\w+")
@@ -21,8 +25,8 @@ fun main() {
         surnames.add(array[0])
         names.add(array[1])
     }
-    val pair = surnames.zip(names)
-    for (o in pair) {
-        println("Фамилия: ${o.first}, Имя: ${o.second}")
+    val users = surnames.zip(names)
+    for (user in users) {
+        println("Фамилия: ${user.first}, Имя: ${user.second}")
     }
 }
