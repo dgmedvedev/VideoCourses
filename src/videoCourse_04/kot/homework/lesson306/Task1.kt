@@ -13,16 +13,43 @@ fun main() {
 }
 
 fun printInto(data: Map<String, List<Int>>) {
+    val avgRevenueInWeek = data.filter { it -> it.value.all { it >= 0 } }.flatMap { it.value }.average()
+    val correctMonthsMap = data.filter { it -> it.value.all { it >= 0 } }
+    val incorrectMonthsMap = data.filter { it -> it.value.any { it < 0 } }
+    val sumRevenueInAllMonths = correctMonthsMap.flatMap { it.value }.sum()
+    val avgRevenueInAllMonths = sumRevenueInAllMonths.toDouble() / correctMonthsMap.size
+    val revenueInCorrectMonths = correctMonthsMap.map { it.value.sum() }
+    val namesInCorrectMonths = correctMonthsMap.map { it.key }
+    val namesInIncorrectMonths = incorrectMonthsMap.map { it.key }
+    val maxRevenueInMonths = revenueInCorrectMonths.max()
+    val minRevenueInMonths = revenueInCorrectMonths.min()
+
+    var monthWithMaxRevenue = ""
+    var monthWithMinRevenue = ""
+    var errorInMonths = ""
+
+    for (i in revenueInCorrectMonths.indices) {
+        if (revenueInCorrectMonths[i] == maxRevenueInMonths) {
+            monthWithMaxRevenue += "${namesInCorrectMonths[i]} "
+        }
+        if (revenueInCorrectMonths[i] == minRevenueInMonths) {
+            monthWithMinRevenue += "${namesInCorrectMonths[i]} "
+        }
+    }
+
+    for (month in namesInIncorrectMonths) {
+        errorInMonths += "$month "
+    }
+
     println(
-        data.toString() + "\n" +
-                """
-Средняя выручка в неделю: $|значение|
-Средняя выручка в месяц: $|значение|
-Максимальная выручка в месяц: $|значение|
-Была в следующих месяцах: $|значение|
-Минимальная выручка в месяц: $|значение|
-Была в следующих месяцах: $|значение|
-Ошибки произошли в следующих месяцах: $|значение|
+        """
+Средняя выручка в неделю: $avgRevenueInWeek
+Средняя выручка в месяц: $avgRevenueInAllMonths
+Максимальная выручка в месяц: $maxRevenueInMonths
+Была в следующих месяцах: $monthWithMaxRevenue
+Минимальная выручка в месяц: $minRevenueInMonths
+Была в следующих месяцах: $monthWithMinRevenue
+Ошибки произошли в следующих месяцах: $errorInMonths
         """
     )
 }
