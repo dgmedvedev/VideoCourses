@@ -23,7 +23,7 @@ fun printInto(data: Map<String, List<Int>>) {
 
     val incorrectMonthsMap = data.filter { it -> it.value.any { it < 0 } }
     val namesInCorrectMonths = correctMonthsMap.map { it.key }
-    val namesInIncorrectMonths = incorrectMonthsMap.map { it.key }
+    val namesInIncorrectMonths = incorrectMonthsMap.keys
 
     var monthWithMaxRevenue = ""
     var monthWithMinRevenue = ""
