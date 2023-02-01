@@ -13,16 +13,17 @@ fun main() {
 }
 
 fun printInto(data: Map<String, List<Int>>) {
-    val avgRevenueInWeek = data.filter { it -> it.value.all { it >= 0 } }.flatMap { it.value }.average()
     val correctMonthsMap = data.filter { it -> it.value.all { it >= 0 } }
-    val incorrectMonthsMap = data.filter { it -> it.value.any { it < 0 } }
-    val sumRevenueInAllMonths = correctMonthsMap.flatMap { it.value }.sum()
-    val avgRevenueInAllMonths = sumRevenueInAllMonths.toDouble() / correctMonthsMap.size
+    val avgRevenueInWeek = correctMonthsMap.flatMap { it.value }.average()
+
     val revenueInCorrectMonths = correctMonthsMap.map { it.value.sum() }
-    val namesInCorrectMonths = correctMonthsMap.map { it.key }
-    val namesInIncorrectMonths = incorrectMonthsMap.map { it.key }
     val maxRevenueInMonths = revenueInCorrectMonths.max()
     val minRevenueInMonths = revenueInCorrectMonths.min()
+    val avgRevenueInAllMonths = revenueInCorrectMonths.average()
+
+    val incorrectMonthsMap = data.filter { it -> it.value.any { it < 0 } }
+    val namesInCorrectMonths = correctMonthsMap.map { it.key }
+    val namesInIncorrectMonths = incorrectMonthsMap.map { it.key }
 
     var monthWithMaxRevenue = ""
     var monthWithMinRevenue = ""
