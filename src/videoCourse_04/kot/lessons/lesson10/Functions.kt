@@ -10,6 +10,7 @@ fun main() {
 
 fun max(a: Int, b: Int) = if (a > b) a else b
 
+// min - минимальное значение из двух: либо 5 либо длина строки
 fun crop(str: String) = str.substring(0, min(5, str.length))
 
 fun sum(vararg numbers: Int): Int {

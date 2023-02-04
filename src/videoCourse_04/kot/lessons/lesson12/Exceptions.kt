@@ -8,17 +8,15 @@ fun main() {
     sc = Scanner(System.`in`)
     val s2 = sc.nextLine()
 
-    sum(s1, s2)
+    println(sum(s1, s2))
 }
 
 fun sum(a: String, b: String): Int {
-    val result = try {
+    return try {
         val numA = a.toInt()
         val numB = b.toInt()
         numA + numB
     } catch (e: Exception) {
         0
     }
-    println(result)
-    return result
 }
