@@ -2,12 +2,12 @@ package videoCourse_04.jav.lesson404;
 
 import java.util.Objects;
 
-public class Address {
+public class AddressEqualsHashCode {
     private final String city;
     private final String street;
     private final int numberOfHouse;
 
-    public Address(String city, String street, int numberOfHouse) {
+    public AddressEqualsHashCode(String city, String street, int numberOfHouse) {
         this.city = city;
         this.street = street;
         this.numberOfHouse = numberOfHouse;
@@ -18,11 +18,11 @@ public class Address {
         if (this == obj) {
             return true;
         }
+        if (obj == null || getClass() != obj.getClass()) return false;
         if (this.hashCode() != obj.hashCode()) {
             return false;
         }
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Address address = (Address) obj;
+        AddressEqualsHashCode address = (AddressEqualsHashCode) obj;
         return numberOfHouse == address.numberOfHouse &&
                 Objects.equals(city, address.city) &&
                 Objects.equals(street, address.street);
