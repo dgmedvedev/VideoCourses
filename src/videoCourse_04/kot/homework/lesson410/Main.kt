@@ -7,4 +7,7 @@ fun main() {
             println("Водонос принес спортсмену воду")
         }
     })
+
+    // использование lambda-выражения
+    sportsman.invokeWaterCarrier { println("Водонос принес спортсмену lambda - воду") }
 }
