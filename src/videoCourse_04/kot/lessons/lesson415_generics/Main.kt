@@ -18,4 +18,42 @@ fun main() {
     for (i in 0 until myArrayList.size()) {
         println(myArrayList.get(i))
     }
+
+    myArrayList.remove("20")
+    myArrayList.remove("40")
+    myArrayList.remove("60")
+    myArrayList.remove("80")
+    myArrayList.remove("100")
+    myArrayList.remove("120")
+
+    println()
+    for (i in 0 until myArrayList.size()) {
+        println(myArrayList.get(i))
+    }
+
+    myArrayList.add("10")
+    println()
+    for (i in 0 until myArrayList.size()) {
+        println(myArrayList.get(i))
+    }
+
+    myArrayList.remove("10")
+    myArrayList.add("10")
+    println()
+    for (i in 0 until myArrayList.size()) {
+        println(myArrayList.get(i))
+    }
+
+    myArrayList.removeAt(4)
+    println()
+    for (i in 0 until myArrayList.size()) {
+        println(myArrayList.get(i))
+    }
+
+    myArrayList.removeAt(3)
+    println()
+    println("size = ${myArrayList.size()}")
+    for (i in 0 until myArrayList.size()) {
+        println(myArrayList.get(i))
+    }
 }

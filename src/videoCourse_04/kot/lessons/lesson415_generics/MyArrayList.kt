@@ -6,7 +6,6 @@ class MyArrayList : MyList {
     private var array = Array(capacity) { "" }
     private var size = 0
 
-
     override fun get(index: Int): String = if (index in 0 until capacity) array[index] else "Incorrect index"
 
     override fun add(string: String) {
@@ -25,11 +24,46 @@ class MyArrayList : MyList {
     }
 
     override fun remove(element: String) {
-        TODO("Not yet implemented")
+        for (i in array.indices) {
+            if (array[i] == element) {
+                size--
+                if (i == size) {
+                    array[i] = ""
+                    break
+                }
+                for (j in i until size) {
+                    if (j + 1 == size) {
+                        array[j] = array[j + 1]
+                        array[j + 1] = ""
+                        break
+                    } else {
+                        array[j] = array[j + 1]
+                    }
+                }
+            }
+        }
     }
 
     override fun removeAt(index: Int) {
-        TODO("Not yet implemented")
+        if (index in 0 until size) {
+            size--
+
+            if (index == size) {
+                array[index] = ""
+            } else {
+                for (i in index until size) {
+                    if (i + 1 == size) {
+                        array[i] = array[i + 1]
+                        array[i + 1] = ""
+                        break
+                    } else {
+                        array[i] = array[i + 1]
+                    }
+                }
+            }
+        } else {
+            throw ArrayIndexOutOfBoundsException()
+        }
     }
 
     override fun size(): Int = size
