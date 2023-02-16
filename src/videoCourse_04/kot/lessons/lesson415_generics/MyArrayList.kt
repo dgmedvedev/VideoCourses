@@ -6,7 +6,12 @@ class MyArrayList : MyList {
     private var array = Array(capacity) { "" }
     private var size = 0
 
-    override fun get(index: Int): String = if (index in 0 until capacity) array[index] else "Incorrect index"
+    override fun get(index: Int): String {
+        if (index in 0 until size) {
+            return array[index]
+        }
+        throw ArrayIndexOutOfBoundsException()
+    }
 
     override fun add(string: String) {
         if (size < capacity) {
@@ -61,9 +66,8 @@ class MyArrayList : MyList {
                     }
                 }
             }
-        } else {
-            throw ArrayIndexOutOfBoundsException()
         }
+        throw ArrayIndexOutOfBoundsException()
     }
 
     override fun size(): Int = size
