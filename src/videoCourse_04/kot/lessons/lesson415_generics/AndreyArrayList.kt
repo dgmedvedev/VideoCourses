@@ -1,28 +1,26 @@
 package videoCourse_04.kot.lessons.lesson415_generics
 
-class MyArrayList : MyList {
+class AndreyArrayList : MyList {
 
     private var capacity = 10
-    private var array = Array(capacity) { "" }
+    private var array = arrayOfNulls<String>(capacity)
     private var size = 0
 
     override fun get(index: Int): String {
         if (index in 0 until size) {
-            return array[index]
+            array[index]?.let {
+                return it
+            }
         }
-        throw ArrayIndexOutOfBoundsException()
+        throw IndexOutOfBoundsException()
     }
 
     override fun add(string: String) {
         if (size < capacity) {
             array[size] = string
         } else {
-            capacity += 10
-            val newArray = Array(capacity) { "" }
-            for (i in array.indices) {
-                newArray[i] = array[i]
-            }
-            array = newArray
+            capacity = capacity * 2 + 1
+            array = array.copyOf(capacity)
             array[size] = string
         }
         size++
@@ -66,9 +64,8 @@ class MyArrayList : MyList {
                     }
                 }
             }
-        } else {
-            throw ArrayIndexOutOfBoundsException()
         }
+        throw ArrayIndexOutOfBoundsException()
     }
 
     override fun size(): Int = size

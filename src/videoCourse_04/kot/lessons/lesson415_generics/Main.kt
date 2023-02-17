@@ -2,6 +2,9 @@ package videoCourse_04.kot.lessons.lesson415_generics
 
 fun main() {
     val myArrayList = MyArrayList()
+    val list = AndreyArrayList()
+    println(list)
+
     myArrayList.add("10")
     myArrayList.add("20")
     myArrayList.add("30")
