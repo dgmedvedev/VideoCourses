@@ -1,21 +1,31 @@
 package videoCourse_04.kot.lessons.lesson415_generics
 
-class MyArrayList : MyList {
+class MyArrayList<T> : MyList<T> {
 
     private var capacity = 10
-    private var array = arrayOfNulls<String>(capacity)
+    private var array = arrayOfNulls<Any>(capacity)
     private var size = 0
 
-    override fun get(index: Int): String {
+    companion object {
+        fun <T> myListOf(vararg elements: T): MyArrayList<T> {
+            val list = MyArrayList<T>()
+            for (element in elements) {
+                list.add(element)
+            }
+            return list
+        }
+    }
+
+    override fun get(index: Int): T {
         if (index in 0 until size) {
             array[index]?.let {
-                return it
+                return it as T
             }
         }
         throw IndexOutOfBoundsException()
     }
 
-    override fun add(string: String) {
+    override fun add(string: T) {
         if (size >= capacity) {
             capacity = (capacity * 1.5).toInt() + 1
             array = array.copyOf(capacity)
@@ -24,7 +34,7 @@ class MyArrayList : MyList {
         size++
     }
 
-    override fun remove(element: String) {
+    override fun remove(element: T) {
         for ((index, string) in array.withIndex()) {
             if (string == element) {
                 removeAt(index)

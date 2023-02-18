@@ -1,7 +1,7 @@
 package videoCourse_04.kot.lessons.lesson415_generics
 
 fun main() {
-    val list = MyArrayList()
+    val list = MyArrayList.myListOf("2", "4", "hi")
 
     for (i in 0..100) {
         list.add("$i")

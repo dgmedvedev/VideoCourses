@@ -1,9 +1,9 @@
 package videoCourse_04.kot.lessons.lesson415_generics
 
-interface MyList {
-    fun get(index: Int): String
-    fun add(string: String)
-    fun remove(element: String)
+interface MyList<T> {
+    fun get(index: Int): T
+    fun add(string: T)
+    fun remove(element: T)
     fun removeAt(index: Int)
     fun size(): Int
 }
