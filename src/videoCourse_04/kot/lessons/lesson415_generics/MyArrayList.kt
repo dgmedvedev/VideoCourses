@@ -34,15 +34,6 @@ class MyArrayList<T> : MyList<T> {
         size++
     }
 
-    override fun remove(element: T) {
-        for ((index, string) in array.withIndex()) {
-            if (string == element) {
-                removeAt(index)
-                return
-            }
-        }
-    }
-
     override fun removeAt(index: Int) {
         if (index in 0 until size) {
             size--
@@ -62,6 +53,15 @@ class MyArrayList<T> : MyList<T> {
             }
         } else {
             throw ArrayIndexOutOfBoundsException()
+        }
+    }
+
+    override fun remove(element: T) {
+        for ((index, string) in array.withIndex()) {
+            if (string == element) {
+                removeAt(index)
+                return
+            }
         }
     }
 

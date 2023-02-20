@@ -15,4 +15,12 @@ fun main() {
 
     val array1 = intArrayOf(1, 2, 3)
     val array2 = IntArray(10)
+
+    for (el in array1) {
+        println(el)
+    }
+
+    for (el in array2) {
+        println(el)
+    }
 }
