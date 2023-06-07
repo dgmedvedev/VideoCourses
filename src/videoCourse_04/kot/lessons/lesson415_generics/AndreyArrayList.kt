@@ -16,13 +16,11 @@ class AndreyArrayList : MyList<String> {
     }
 
     override fun add(string: String) {
-        if (size < capacity) {
-            array[size] = string
-        } else {
+        if (size >= capacity) {
             capacity = capacity * 2 + 1
             array = array.copyOf(capacity)
-            array[size] = string
         }
+        array[size] = string
         size++
     }
 
@@ -50,9 +48,7 @@ class AndreyArrayList : MyList<String> {
     override fun removeAt(index: Int) {
         if (index in 0 until size) {
             size--
-            if (index == size) {
-                array[index] = ""
-            } else {
+            if (index != size) {
                 for (i in index until size) {
                     if (i + 1 == size) {
                         array[i] = array[i + 1]
@@ -62,9 +58,12 @@ class AndreyArrayList : MyList<String> {
                         array[i] = array[i + 1]
                     }
                 }
+            } else {
+                array[index] = ""
             }
+        } else {
+            throw ArrayIndexOutOfBoundsException()
         }
-        throw ArrayIndexOutOfBoundsException()
     }
 
     override fun size(): Int = size
